@@ -21,7 +21,7 @@ pipeline {
         stage ('Code Quality scan') {
             steps{
         withSonarQubeEnv('sonar') {
-         sh 'mvn -f MyWebApp/pom.xml sonar:sonar'
+         sh "mvn -f MyWebApp/pom.xml sonar:sonar"
             }
          }
         }
