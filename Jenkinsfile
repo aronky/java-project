@@ -21,18 +21,36 @@ pipeline {
         stage ('Code Quality scan') {
             steps{
         withSonarQubeEnv('sonar') {
-         sh "mvn -f MyWebApp/pom.xml sonar:sonar"
+        sh 'mvn -f MyWebApp/pom.xml sonar:sonar'
             }
          }
         }
-        stage("Quality gate") {
+        stage ('Artifactory configuration') {
+            steps {
+                rtServer {
+                    id: "jfrog",
+                    url: "http://3.80.159.88:8082//artifactory"
+                    credentialsId: "jfrog-art",
+                    bypassProxy: true
+                }
+            }
+        }
+
+        stage('Deploy Artifacts') {
+            steps {
+                rtUpload {
+                     serverId: 'jfrog'
+                }
+            }
+        }
+         stage("Quality gate") {
              steps {
                  waitforQualityGate abortPipeline: true
              }
          }
         stage('Deploy to Tomcat') {
             steps {
-                deploy adapters: [tomcat9(credentialsId: 'deployer_user', path: '', url: 'http://23.22.239.245:8080/')], contextPath: 'path', war: '**/*.war'
+                deploy adapters: [tomcat9(credentialsId: 'deployer_user', path: '', url: 'http://54.90.167.194:8080/')], contextPath: 'path', war: '**/*.war'
             }
         }
     }
