@@ -25,24 +25,7 @@ pipeline {
             }
          }
         }
-        stage ('Artifactory configuration') {
-            steps {
-                rtServer {
-                    serverId: 'jart',
-                    url: "http://3.80.159.88:8082//artifactory"
-                    credentialsId: "jfrog-art",
-                    bypassProxy: true
-                }
-            }
-        }
-
-        stage('Deploy Artifacts') {
-            steps {
-                rtUpload {
-                     serverId: 'jart'
-                }
-            }
-        }
+        
          stage("Quality gate") {
              steps {
                  waitforQualityGate abortPipeline: true
