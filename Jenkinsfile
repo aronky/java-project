@@ -28,7 +28,7 @@ pipeline {
         stage ('Artifactory configuration') {
             steps {
                 rtServer {
-                    id: 'jart',
+                    serverId: 'jart',
                     url: "http://3.80.159.88:8082//artifactory"
                     credentialsId: "jfrog-art",
                     bypassProxy: true
