@@ -27,12 +27,12 @@ pipeline {
         }
         stage ('Artifactory configuration') {
             steps {
-                rtServer {
+                rtServer (
                     serverId('jfrog')
                     url: 'http://44.204.93.131:8082/artifactory'
                     credentialsId: 'jfrog-art'
                     bypassProxy: true
-                }
+                )
             }
         }
         stage('Deploy Artifacts') {
