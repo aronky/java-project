@@ -37,9 +37,9 @@ pipeline {
         }
         stage('Deploy Artifacts') {
             steps {
-                rtUpload {
+                rtUpload (
                      serverId('jfrog')
-                }
+                )
             }
         }
         
