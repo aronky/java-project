@@ -31,7 +31,7 @@ pipeline {
                     id: 'jfrog',
                     url: 'http://44.204.93.131:8082/artifactory',
                     credentialsId: 'jfrog-art',
-                    bypassProxy: true,
+                    bypassProxy: true
                 )
             }
         }
