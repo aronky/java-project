@@ -18,13 +18,6 @@ pipeline {
                 sh 'cd MyWebApp && mvn test'
             }
         }
-        stage ('Code Quality scan') {
-            steps{
-        withSonarQubeEnv('sonar') {
-        sh 'mvn -f MyWebApp/pom.xml sonar:sonar'
-            }
-         }
-        }
         stage ('Artifactory configuration') {
             steps {
                 rtServer (
@@ -41,6 +34,14 @@ pipeline {
                      serverId:'jfrog'
                 )
             }
+        }
+        
+        stage ('Code Quality scan') {
+            steps{
+        withSonarQubeEnv('sonar') {
+        sh 'mvn -f MyWebApp/pom.xml sonar:sonar'
+            }
+         }
         }
         
          stage("Quality gate") {
