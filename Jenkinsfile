@@ -28,9 +28,9 @@ pipeline {
                 )
             }
         }        
-        stage('Deploy Artifacts') {
+         stage('Deploy Artifacts') {
             steps {
-                rtUpload {
+                rtUpload (
                      serverId: 'jfrog',
                      spec: ''' {
                         "files": [
@@ -40,7 +40,7 @@ pipeline {
                           }
                         ]
                      } ''',
-                }
+                )
             }
         }
         
