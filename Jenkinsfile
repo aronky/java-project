@@ -36,7 +36,7 @@ pipeline {
                         "files": [
                           {
                             "pattern": "*.war",
-                            "target": "jekins-repo/maven/"
+                            "target": "http://44.195.45.90:8082/artifactory/jekins-repo/maven/"
                           }
                         ]
                      } ''',
