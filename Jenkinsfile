@@ -35,8 +35,8 @@ pipeline {
                      spec: '''{
                         "files": [
                           {
-                            "pattern": "*.war",
-                            "target": "maven/"
+                            "pattern": '*.war',
+                            "target": 'maven/'
                           }
                         ]
                      }''',
