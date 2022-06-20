@@ -36,7 +36,7 @@ pipeline {
                         "files": [
                           {
                             "pattern": "*.war",
-                            "target": "maven/"
+                            "target": "jekins-repo/maven/"
                           }
                         ]
                      } ''',
