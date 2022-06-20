@@ -39,7 +39,7 @@ pipeline {
                             "target": 'maven/'
                           }
                         ]
-                     } ''',
+                     }''',
                 )
             }
         }
