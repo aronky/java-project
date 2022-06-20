@@ -35,8 +35,8 @@ pipeline {
                      spec: '''{
                         "files": [
                           {
-                            "pattern": "*.war",
-                            "target": "http://44.195.45.90:8082/artifactory/jekins-repo/maven/"
+                            "pattern": '*.war',
+                            "target": 'maven/'
                           }
                         ]
                      } ''',
