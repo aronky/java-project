@@ -33,12 +33,11 @@ pipeline {
                 rtUpload (
                      serverId: 'jfrog',
                      spec: ''{
-                        "files": [
+                        "files": 
                           {
                             "pattern": '*.war',
                             "target": 'maven/'
                           }
-                        ]
                      }'',
                  )
             }
